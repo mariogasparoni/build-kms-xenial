@@ -27,7 +27,7 @@ sudo apt-get install --no-install-recommends -y libopencv-dev
 find $KMS_FILTERS_DIR -name CMakeLists.txt -print0 | xargs -0 sed -i -e "s/gstreamer\([a-zA-Z0-9-]*\)1.5/gstreamer\11.0/g"
 
 PKG_CONFIG_PATH="$OPENWEBRTC_GST_PLUGINS_DIR:$KMS_JSONCPP_DIR/pkg-config/";
-CMAKE_CXX_FLAGS=" -I$KMS_JSONCPP_DIR/include/"
+CMAKE_CXX_FLAGS=" -I$KMS_JSONCPP_DIR/include/ -L$KMS_JSONCPP_DIR/src/lib_json"
 CMAKE_C_FLAGS="$CMAKE_CXX_FLAGS"
 
 sed -i -e "s/gst\([a-zA-Z0-9-]*\)1.5/gst\11.0/g" $KMS_FILTERS_DIR/debian/control
